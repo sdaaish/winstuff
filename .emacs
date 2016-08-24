@@ -1,3 +1,5 @@
+;; For more information on Emacs on W32, see https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/
+;; and https://www.emacswiki.org/emacs/MsWindowsDotEmacs
 ;; Use this file for builtin Customize-function
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)

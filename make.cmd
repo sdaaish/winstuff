@@ -1,7 +1,19 @@
 @echo off
 
-rem ## Copy cmd-files to local bin
-rem SDAA/20160525
+:: ## Copy settings and files to local
+:: SDAA/20160525
 
+:: Copy files to directory included in PATH
 copy *.cmd \local\bin
+
+:: Copy settings to homedir
+
+:: Try to create symlinks. Won't mostly work cause of permissions.
+:: Create them beforehand is recommended.
+:: cd %userprofile%
+:: mklink .emacs path-to-git-repo\.emacs-file
+:: mklink /d .emacs.d AppData\Roaming\.emacs.d
+copy .emacs %AppData%
+mkdir %AppData%\.emacs.d 2>NUL
+xcopy /YECIFR .emacs.d %AppData%\.emacs.d
 
