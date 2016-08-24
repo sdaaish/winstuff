@@ -15,5 +15,6 @@ copy *.cmd \local\bin
 :: mklink /d .emacs.d AppData\Roaming\.emacs.d
 copy .emacs %AppData%
 mkdir %AppData%\.emacs.d 2>NUL
+:: mklink .emacs path-to-git-repo\.emacs-file
 xcopy /YECIFR .emacs.d %AppData%\.emacs.d
 
