@@ -14,5 +14,5 @@ set $Sekund=%Time:~6,2%
 set $Tid=%$Timma%:%$Minut%:%$Sekund%
 
 echo Aktuellt datum: %$Datum% och tid: %$Tid%
-sleep 1
+ping -n 2 -w 1000 127.0.0.1  >NUL 2>NUL
 goto begin
