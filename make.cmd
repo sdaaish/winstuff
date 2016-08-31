@@ -4,7 +4,7 @@
 :: SDAA/20160525
 
 :: Copy files to directory included in PATH
-copy *.cmd \local\bin
+for /f %%i in ('dir /b *.cmd') do (call :subroutine %%i)
 
 :: Copy settings to homedir
 
@@ -17,4 +17,16 @@ copy .emacs %AppData%
 mkdir %AppData%\.emacs.d 2>NUL
 :: mklink .emacs path-to-git-repo\.emacs-file
 xcopy /YECIFR .emacs.d %AppData%\.emacs.d
+goto eof
 
+:subroutine
+setlocal
+set $file=%1
+:: Dont copy this file
+if not "%$file%"=="make.cmd" (
+   	copy %$file% \local\bin
+   )
+endlocal
+exit /b
+
+:eof
