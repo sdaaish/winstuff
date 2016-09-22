@@ -1,6 +1,8 @@
 @echo off
 
-rem # Creates tunnel to mitm-proxy
-rem # 20160630/SDAA
+:: # Creates tunnel to mitm-proxy
+:: # 20160630/SDAA
 
-ssh -f mitm -L 8080:mitm:8080 -N
+:: -f means go background
+:: -NnT means xxx
+ssh -f mitm -L 8080:127.0.0.1:8080 -NnT
