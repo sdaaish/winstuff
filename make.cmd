@@ -23,7 +23,8 @@ set $file=%1
 set $dest=C:\local\bin
 :: Dont copy this file
 if not "%$file%"=="make.cmd" (
-   	copy %$file% %$dest%
+       	echo Copy %$file%
+   	copy /v /y %$file% %$dest% >NUL
    )
 endlocal
 exit /b
