@@ -9,33 +9,42 @@
 :: 2016-12-02/SDAA
 
 :: Stuff is located in 2 places, System32 and SysWOW64
+:: System32
 cd C:\Windows\System32\Macromed\Flash
 takeown /f *
 icacls * /grant %USERDOMAIN%\%USERNAME%:F
-del *
+echo "Removes files.."
+del /q *
 cd C:\Windows\System32
-rmdir /s Macromed
+rmdir /s /q Macromed
 
+:: SysWOW64
 cd C:\Windows\SysWOW64\Macromed\Flash
 takeown /f *
 icacls * /grant %USERDOMAIN%\%USERNAME%:F
-del *
+echo "Remove files..."
+del /q *
 cd C:\Windows\SysWOW64
-rmdir /s Macromed
+rmdir /s /q Macromed
 
 :: Delete control panel app
 cd C:\Windows\SysWOW64
-del FlashPlayerApp.exe
-del FlashPlayerCPLApp.cpl
+del /q FlashPlayerApp.exe
+del /q FlashPlayerCPLApp.cpl
 
 :: Remove stuff from home
 cd %AppData%
-rmdir /s "Flash Player"
-rmdir /s Macromedia
+echo "remove Flash from %AppData%"
+rmdir /s /q "Flash Player"
+rmdir /s /q Macromedia
+cd %LocalAppData%
+rmdir /s /q Macromedia
 
 :: List whats left of Adbobe-stuff
 cd C:\Windows
+echo "List all remaining flash-files"
 dir /s *flash*
 dir /s *macromed*
 
 echo "Removed macromedia flash files almost completely...."
+pause
