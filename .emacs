@@ -1,15 +1,22 @@
 ;; For more information on Emacs on W32, see https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/
 ;; and https://www.emacswiki.org/emacs/MsWindowsDotEmacs
 ;; Use this file for builtin Customize-function
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
 ;;Load packages
-(setq package-check-signature nil)
-(setq package-archives '(("gnu"		. "https://elpa.gnu.org/packages/")
-			 ("melpa"	. "https://melpa.org/packages/")
-			 ("org"		. "http://orgmode.org/elpa/")
-			 ("marmalade"	. "https://marmalade-repo.org/packages/")))
+(require 'package)
+;;(setq package-check-signature nil)
+(add-to-list 'package-archives
+	     '("melpa"	. "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("gnu"	. "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+	     '("org"	. "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives
+	     '("marmalade"	. "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 ;;Load local stuff
 (add-to-list 'load-path "~/.emacs.d/lisp")
