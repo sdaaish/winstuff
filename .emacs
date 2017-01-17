@@ -30,6 +30,10 @@
       initial-scratch-message nil
       initial-major-mode 'org-mode)
 
+;; No menubar or toolbar
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
 ;;No beep
 (setq visible-bell t)
 
