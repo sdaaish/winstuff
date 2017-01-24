@@ -2,4 +2,4 @@
 
 :: Starts Powershell
 
-powershell
+powershell -ExecutionPolicy ByPass -f %1
