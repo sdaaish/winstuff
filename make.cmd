@@ -13,6 +13,7 @@ for /f %%i in ('dir /b *.cmd') do (call :subroutine %%i)
 :: mklink .emacs path-to-git-repo\.emacs-file
 :: mklink %AppData%\.emacs path-to-git-repo\.emacs-file
 :: mkdir %AppData%\.emacs.d 2>NUL
+:: rmdir /s /q %UserProfile%\.emacs.d
 :: mklink /d %UserProfile%\.emacs.d AppData\Roaming\.emacs.d
 xcopy /YECIFR .emacs.d %AppData%\.emacs.d
 goto eof
