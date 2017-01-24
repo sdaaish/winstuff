@@ -20,7 +20,7 @@ goto eof
 :subroutine
 setlocal
 set $file=%1
-set $dest=C:\local\bin
+set $dest=%UserProfile%\bin
 :: Dont copy this file
 if not "%$file%"=="make.cmd" (
        	echo Copy %$file%
