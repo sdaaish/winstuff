@@ -20,6 +20,11 @@
 
 ;;Load local stuff
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/packages")
+(setq epackage--sources-replace-table
+      '(("git://github" "https://github")))
+(load "~/.emacs.d/epackage/00conf/epackage-loader" 'noerr)
+(autoload 'epackage-manager "epackage" "" t)
 
 ;;Load theme
 (load-theme 'deeper-blue)
@@ -37,7 +42,8 @@
 ;;No beep
 (setq visible-bell t)
 
-;; Show numbers
+;; Initial settings
+(setq-default major-mode 'text-mode)
 (line-number-mode t)
 (column-number-mode t)
 (transient-mark-mode t)
@@ -62,12 +68,25 @@
                  (concat user-emacs-directory "backups")))))
 
 ;; Make backups of files, even when they're in version control
+(setq delete-old-versions nil)
+(setq version-control t)
 (setq vc-make-backup-files t)
 
 ;; Save point position between sessions
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
+;; Save history of files
+(setq savehist-file (expand-file-name ".savehist" user-emacs-directory))
+(savehist-mode 1)
+(setq history-length t)
+(setq history-delete-duplicates t)
+(setq savehist-save-minibuffer-history 1)
+(setq savehist-additional-variables
+      '(kill-ring
+        search-ring
+        regexp-search-ring))
 
 ;; Windows position and size
 (setq initial-frame-alist
