@@ -9,13 +9,15 @@
 (require 'package)
 ;;(setq package-check-signature nil)
 (add-to-list 'package-archives
-	     '("melpa"	. "http://melpa.org/packages/"))
+	     '("melpa-stable"	. "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("gnu"	. "https://elpa.gnu.org/packages/"))
+	     '("melpa"	. "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("org"	. "http://orgmode.org/elpa/"))
+	     '("gnu"	. "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
-	     '("marmalade"	. "http://marmalade-repo.org/packages/"))
+	     '("org"	. "http://orgmode.org/elpa/") t)
+;;(add-to-list 'package-archives
+;;	     '("marmalade"	. "https://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ;;Load local stuff
