@@ -6,6 +6,7 @@
 (load custom-file 'noerror)
 
 ;;Load packages
+(prefer-coding-system 'utf-8)
 (require 'package)
 ;;(setq package-check-signature nil)
 (setq package-archives nil)
