@@ -8,6 +8,7 @@
 ;;Load packages
 (require 'package)
 ;;(setq package-check-signature nil)
+(setq package-archives nil)
 (add-to-list 'package-archives
 	     '("melpa-stable"	. "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
@@ -19,13 +20,18 @@
 ;;(add-to-list 'package-archives
 ;;	     '("marmalade"	. "https://marmalade-repo.org/packages/"))
 (package-initialize)
+(unless (and (file-exists-p (concat init-dir "elpa/archives/gnu"))
+             (file-exists-p (concat init-dir "elpa/archives/melpa"))
+             (file-exists-p (concat init-dir "elpa/archives/melpa-stable"))
+	     (file-exists-p (concat init-dir "elpa/archives/org")))
+  (package-refresh-contents))
 
 ;;Load local stuff
-(add-to-list 'load-path "~/.emacs.d/lisp")
-(add-to-list 'load-path "~/.emacs.d/packages")
+(add-to-list 'load-path (concat init-dir "lisp"))
+(add-to-list 'load-path (concat init-dir "packages"))
 (setq epackage--sources-replace-table
       '(("git://github" "https://github")))
-(load "~/.emacs.d/epackage/00conf/epackage-loader" 'noerr)
+(load (concat init-dir "epackage/00conf/epackage-loader" 'noerr))
 (autoload 'epackage-manager "epackage" "" t)
 
 ;;Load theme
