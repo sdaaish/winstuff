@@ -16,15 +16,15 @@
 	     '("melpa"	. "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("gnu"	. "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-	     '("org"	. "http://orgmode.org/elpa/") t)
+;;(add-to-list 'package-archives
+;;	     '("org"	. "http://orgmode.org/elpa/") t)
 ;;(add-to-list 'package-archives
 ;;	     '("marmalade"	. "https://marmalade-repo.org/packages/"))
 (package-initialize)
 (unless (and (file-exists-p (concat user-emacs-directory "elpa/archives/gnu"))
              (file-exists-p (concat user-emacs-directory "elpa/archives/melpa"))
-             (file-exists-p (concat user-emacs-directory "elpa/archives/melpa-stable"))
-	     (file-exists-p (concat user-emacs-directory "elpa/archives/org")))
+             (file-exists-p (concat user-emacs-directory "elpa/archives/melpa-stable")))
+;;	     (file-exists-p (concat user-emacs-directory "elpa/archives/org")))
   (package-refresh-contents))
 
 ;;Load local stuff
@@ -38,12 +38,12 @@
 (when (not (file-exists-p "lisp"))
       (make-directory (concat user-emacs-directory "lisp") t))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
-(let ((default-directory (concat user-emacs-directory "packages")))
-  (normal-top-level-add-subdirs-to-load-path))
-(setq epackage--sources-replace-table
-      '(("git://github" "https://github")))
-(load (concat user-emacs-directory (convert-standard-filename "epackage/00conf/epackage-loader")) 'noerr)
-(autoload 'epackage-manager "epackage" "" t)
+;;(let ((default-directory (concat user-emacs-directory "packages")))
+;; (normal-top-level-add-subdirs-to-load-path))
+;;(setq epackage--sources-replace-table
+;;      '(("git://github" "https://github")))
+;;(load (concat user-emacs-directory (convert-standard-filename "epackage/00conf/epackage-loader")) 'noerr)
+;;(autoload 'epackage-manager "epackage" "" t)
 
 ;;Load theme
 (load-theme 'deeper-blue)
