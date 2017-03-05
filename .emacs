@@ -28,6 +28,15 @@
   (package-refresh-contents))
 
 ;;Load local stuff
+;; From https://coldnew.github.io/coldnew-emacs/init.el.html
+(defconst user-package-directory
+  (file-name-as-directory (concat user-emacs-directory "packages")))
+;; create the `user-package-directory' if not exists
+(make-directory user-package-directory t)
+
+;; Local lisp-directory
+(when (not (file-exists-p "lisp"))
+      (make-directory (concat user-emacs-directory "lisp") t))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (let ((default-directory (concat user-emacs-directory "packages")))
   (normal-top-level-add-subdirs-to-load-path))
