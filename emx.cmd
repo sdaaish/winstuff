@@ -7,5 +7,3 @@ if [%1]==[] (
    ) else (
    emacsclient "%~f1"
 )
-
-
