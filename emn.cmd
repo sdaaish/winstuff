@@ -5,7 +5,7 @@
 
 :: 2017-04-06/SDAA
 if [%1]==[] (
-   echo "Usage: %~fp0 <filename(s)>"
+   emacsclient --quiet --alternate-editor "" --no-wait --create-frame
    ) else (
    emacsclient --quiet --alternate-editor "" --no-wait --create-frame "%*"
 )

@@ -1,4 +1,12 @@
-# Emacsclient options
+# Emacsclient info
+To start emacs as a server, you should call ```emacs --daemon```, or rather in windows, ```runemacs --daemon```.
+The reason for this is that emacs starts as a console-process, with a visible console-window, while runemacs starts as a GUI application without a console window.
+
+The same applies for emacsclient and emacsclientw, where the first is a console program and the latter a GUI-program.
+The difference is not visibel except for the options that are shown in console versus as a GUI window if you use --help as argument.
+See https://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Startup.html
+
+## Emacsclient options
 
     Usage: C:\ProgramData\chocolatey\lib\emacs64\tools\emacs\bin\emacsclient.exe [OPTIONS] FILE...
 
