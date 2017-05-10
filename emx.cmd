@@ -5,7 +5,7 @@
 
 :: 2017-04-06/SDAA
 if [%1]==[] (
-   emacsclientw --quiet --alternate-editor "" --no-wait --create-frame
+   emacsclientw --quiet --alternate-editor="" --create-frame
    ) else (
-   emacsclientw --quiet --alternate-editor "" --no-wait "%*"
+   emacsclientw --quiet --alternate-editor="" "%*"
 )
