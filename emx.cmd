@@ -12,9 +12,12 @@
 
 :: If you want a second frame, just type 'emx'.
 
-:: Apparently you cannot have quotation marks around the variable %* for this to work.
+:: Apparently you cannot have quotation marks around the variable %* or %~s1 for this to work.
+
+:: The variable %~s1 converts the filename to 8.3 to be able to open files where the filenames are encoded.
+:: The drawback is that both the filename and the directory gets tangled.
 if [%1]==[] (
    emacsclientw --quiet --alternate-editor="" --create-frame
    ) else (
-   emacsclientw --quiet --alternate-editor="" %*
+   emacsclientw --quiet --alternate-editor="" %~s1
 )
