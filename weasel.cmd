@@ -17,6 +17,5 @@
 if [%1]==[] (
    wsl.exe -- emacsclient --quiet --alternate-editor="" --create-frame --display :0.0 --no-wait
    ) else (
-   echo %1
    wsl.exe -- emacsclient --quiet --alternate-editor=""  --display :0.0 --no-wait "$(wslpath %1)"
 )
